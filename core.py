@@ -3,8 +3,7 @@ from barcode.writer import ImageWriter
 
 import uuid
 
-def _random_string(string_length=10):
-    """Returns a random string of length string_length."""
+def random_string(string_length=10):
     random = str(uuid.uuid4()) # Convert UUID format to a Python string.
     random = random.upper() # Make all characters uppercase.
     random = random.replace("-","") # Remove the UUID '-'.
@@ -23,4 +22,4 @@ def generate_barcode(number):
     '''
 
     my_code = EAN13(number,writer=ImageWriter())
-    my_code.save(_random_string(6))
+    my_code.save(random_string(6))
