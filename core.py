@@ -14,5 +14,8 @@ def generate_barcode(number):
     - file png : Image Barcode 
     '''
 
-    my_code = EAN13(number,writer=ImageWriter())
-    my_code.save(random_string(6))
+    barcode = EAN13(number,writer=ImageWriter())
+    file_name = random_string(6)
+    barcode.save(file_name)
+
+    return open(f"{file_name}.png")
